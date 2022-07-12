@@ -27,7 +27,7 @@ fun Navigation(
 
         }
         composable(Screen.Detail.route) { backStackEntry ->
-            DetailsScreen(navController = navController, bookViewModel = bookViewModel)
+            DetailsScreen( bookViewModel = bookViewModel, navController = navController)
         }
     }
 }
