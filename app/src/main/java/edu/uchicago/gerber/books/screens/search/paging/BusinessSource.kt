@@ -42,14 +42,7 @@ class BusinessSource @Inject constructor(
                     nextKey = if (body.size < params.loadSize) null else prev + 10
                 )
             } else {
-                Log.d("pager", "failed")
-                val body = Constants.fakeResponse.items
-                LoadResult.Page(
-                    data = body!!,
-                    prevKey = if (prev == 0) null else prev - 1,
-                    nextKey = if (body.size < params.loadSize) null else prev + 1
-                )
-                // LoadResult.Error(Exception())
+                 LoadResult.Error(Exception())
             }
 
         } catch (e: Exception) {
