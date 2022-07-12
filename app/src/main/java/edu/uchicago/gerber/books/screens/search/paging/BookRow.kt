@@ -55,8 +55,6 @@ fun BookRow(
                     // Crop, Fit, Inside, FillHeight, FillWidth, None
                     contentScale = ContentScale.FillHeight,
                     placeHolder = painterResource(id = R.drawable.ic_placeholder),
-                    // shows an image with a circular revealed animation.
-                    // shows a placeholder ImageBitmap when loading.
 
                 )
 

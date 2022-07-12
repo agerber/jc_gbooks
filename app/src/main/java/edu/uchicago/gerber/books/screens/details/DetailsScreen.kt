@@ -38,7 +38,7 @@ fun DetailsScreen(
     bookViewModel: BookViewModel
 ) {
 
-    //observe the business
+    //observe the book
     val book = bookViewModel.book.value
     val context = (LocalContext.current as? Activity)
 
@@ -61,8 +61,6 @@ fun DetailsScreen(
                         }
                         .align(Alignment.CenterVertically)
                         .padding(20.dp, 0.dp, 0.dp, 0.dp))
-
-
 
                 Text(
                     text = "Details",
@@ -98,13 +96,14 @@ fun DetailsScreen(
 
                         modifier = Modifier
                             .clickable {
-                                val intent = Intent(
-                                    Intent.ACTION_VIEW,
+                                //this would be used for navigating if you have a physical address
+//                                val intent = Intent(
+//                                    Intent.ACTION_VIEW,
 //                                    Uri.parse(
 //                                        "google.navigation:q=${business.location?.displayAddress}"
 //                                    )
-                                )
-                                context?.startActivity(intent)
+//                                )
+//                                context?.startActivity(intent)
                             }
                             .align(Alignment.CenterVertically)
                             .padding(10.dp, 0.dp, 10.dp, 0.dp))
@@ -114,6 +113,7 @@ fun DetailsScreen(
 
                         modifier = Modifier
                             .clickable {
+                                //this would be used for dialing if you have a phone number
 //                                val intent = Intent(
 //                                    Intent.ACTION_DIAL,
 //                                    Uri.parse("tel:${business.displayPhone}")
@@ -148,9 +148,7 @@ fun DetailsScreen(
                         .size(300.dp),
                     imageModel = getImageUrl(book),
                     // Crop, Fit, Inside, FillHeight, FillWidth, None
-                    contentScale = ContentScale.FillWidth,
-                    // shows an image with a circular revealed animation.
-                    // shows a placeholder ImageBitmap when loading.
+                    contentScale = ContentScale.FillWidth
 
                 )
                 book.volumeInfo.title?.let {
@@ -176,28 +174,21 @@ fun DetailsScreen(
                         fontSize = 16.sp
                     )
                 }
-
-
-
                 Button(
                     modifier =
                     Modifier
                         .padding(10.dp, 0.dp)
                         .fillMaxWidth(1f),
 
-
                     onClick = {
                         Toast.makeText(context, "Favorite Pressed", Toast.LENGTH_LONG).show()
-
                     },
 
                     colors =
                         ButtonDefaults.buttonColors(backgroundColor = Color.Green)
 
                 ) {
-
                         Text(text = "Add to Favorites")
-
                 }
 
             }
@@ -215,16 +206,5 @@ private fun getImageUrl(book: Item): String {
     }
 
 }
-
-//@Preview(showBackground = true)
-//@ExperimentalAnimationApi
-//@Composable
-//fun DetailsScreenPreview() {
-//
-////    DetailsScreen(
-////        navController = rememberNavController(),
-////        context = null
-////    )
-//}
 
 

@@ -27,9 +27,9 @@ fun BusinessList(bookViewModel: BookViewModel, navController: NavController) {
     val res = bookViewModel.searchState.value.data?.collectAsLazyPagingItems()
 
     LazyColumn {
-        items(res!!) { business ->
-            BookRow(book = business!!) {
-                bookViewModel.setBusiness(business)
+        items(res!!) { book ->
+            BookRow(book = book!!) {
+                bookViewModel.setBusiness(book)
                 navController.navigate(
                     route = Screen.Detail.route
                 )
