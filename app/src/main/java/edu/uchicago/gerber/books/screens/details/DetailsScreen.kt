@@ -146,9 +146,9 @@ fun DetailsScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .size(300.dp),
-                    imageModel = getImageUrl(book),
+                    imageModel = book.volumeInfo?.imageLinks?.thumbnail ?: "https://picsum.photos/234/picsum/300/400",
                     // Crop, Fit, Inside, FillHeight, FillWidth, None
-                    contentScale = ContentScale.FillWidth
+                    contentScale = ContentScale.Fit
 
                 )
                 book.volumeInfo.title?.let {
@@ -197,14 +197,6 @@ fun DetailsScreen(
 
 }
 
-private fun getImageUrl(book: Item): String {
-    if (book.volumeInfo.imageLinks == null
-        || book.volumeInfo.imageLinks.thumbnail == null ){
-        return  "https://picsum.photos/234/picsum/300/400"
-    } else {
-        return book.volumeInfo.imageLinks.thumbnail
-    }
 
-}
 
 

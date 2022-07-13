@@ -51,7 +51,7 @@ fun BookRow(
                     modifier = Modifier
                         .width(60.dp)
                         .height(90.dp),
-                    imageModel = getSmallImageUrl(book),
+                    imageModel = book.volumeInfo?.imageLinks?.smallThumbnail ?: "https://picsum.photos/123/picsum/60/90",
                     // Crop, Fit, Inside, FillHeight, FillWidth, None
                     contentScale = ContentScale.FillHeight,
                     placeHolder = painterResource(id = R.drawable.ic_placeholder),
@@ -75,13 +75,3 @@ fun BookRow(
     }
 }
 
-//null check the images
-private fun getSmallImageUrl(book: Item): String {
-    if (book.volumeInfo.imageLinks == null
-        || book.volumeInfo.imageLinks.smallThumbnail == null ){
-        return  "https://picsum.photos/123/picsum/60/90"
-    } else {
-        return book.volumeInfo.imageLinks.smallThumbnail
-    }
-
-}
