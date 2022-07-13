@@ -22,7 +22,7 @@ import edu.uchicago.gerber.favs.screens.BookRow
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun BusinessList(bookViewModel: BookViewModel, navController: NavController) {
+fun BookList(bookViewModel: BookViewModel, navController: NavController) {
 
     val res = bookViewModel.searchState.value.data?.collectAsLazyPagingItems()
 

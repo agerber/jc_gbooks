@@ -1,7 +1,6 @@
 package edu.uchicago.gerber.books.viewmodels
 
 import android.app.Application
-import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -14,7 +13,7 @@ import edu.uchicago.gerber.books.common.Constants
 import edu.uchicago.gerber.books.models.Item
 import edu.uchicago.gerber.favs.models.Paginate
 import edu.uchicago.gerber.favs.data.repository.BooksRepository
-import edu.uchicago.gerber.favs.presentation.screens.search.paging.BusinessSource
+import edu.uchicago.gerber.favs.presentation.screens.search.paging.BookSource
 import edu.uchicago.gerber.favs.presentation.search.SearchOperation
 
 import edu.uchicago.gerber.favs.presentation.search.SearchState
@@ -61,7 +60,7 @@ class BookViewModel @Inject constructor(
                 data = Pager(
                     config = PagingConfig(pageSize = 10, prefetchDistance = 5),
                     pagingSourceFactory = {
-                        BusinessSource(
+                        BookSource(
                             booksRepository = booksRepository,
                             paginateData = Paginate(
                                 query = _queryText.value,

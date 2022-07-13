@@ -11,7 +11,7 @@ import edu.uchicago.gerber.favs.data.repository.BooksRepository
 
 import javax.inject.Inject
 
-class BusinessSource @Inject constructor(
+class BookSource @Inject constructor(
     private val booksRepository: BooksRepository,
     private val paginateData: Paginate,
     private val application: Application

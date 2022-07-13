@@ -1,21 +1,11 @@
 package edu.uchicago.gerber.favs.presentation.screens.search
 
-import android.app.Activity
-import android.content.Context
-import android.content.Intent
-import android.util.Log
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContract
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -26,11 +16,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 import edu.uchicago.gerber.favs.presentation.search.SearchOperation
-import edu.uchicago.gerber.favs.presentation.search.widgets.BusinessList
+import edu.uchicago.gerber.favs.presentation.search.widgets.BookList
 
 import edu.uchicago.gerber.favs.screens.CustomTextField
 import edu.uchicago.gerber.books.viewmodels.BookViewModel
-import edu.uchicago.gerber.favs.R
 
 
 @Composable
@@ -95,7 +84,7 @@ fun SearchScreen(
                     }
                 }
                 SearchOperation.DONE -> {
-                    BusinessList(bookViewModel, navController)
+                    BookList(bookViewModel, navController)
                 }
                 else -> {
                     Box {}
