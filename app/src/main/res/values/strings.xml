@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Favorite Places</string>
-    <string name="yelp3_key">[put your yelp api key here: see below for format and be sure to include the word Bearer. See line BusinessSource.kt line 45 for instructions on code changes after you get your api key. ]</string>
-    <!--    <string name="yelp3_key">Bearer lqei9yL_my_bogus_key_HPkqicE4e7HWR_my_bogus_key_RZY5k7Clrx_YHYx</string>-->
+    <string name="app_name">Books Search</string>
+
 </resources>
