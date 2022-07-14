@@ -37,59 +37,40 @@ fun BookList(bookViewModel: BookViewModel, navController: NavController) {
         }
 
         res.apply {
+            //fallthrough is not supported
             when {
                 loadState.refresh is LoadState.Loading -> {
                     item {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(16.dp)
-                        ) {
-                            CircularProgressIndicator(
-                                modifier = Modifier
-                                    .padding(12.dp)
-                                    .align(
-                                        Alignment.Center
-                                    )
-                            )
-                        }
+                        ProgBar()
                     }
                 }
                 loadState.append is LoadState.Loading -> {
                     item {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(16.dp)
-                        ) {
-                            CircularProgressIndicator(
-                                modifier = Modifier
-                                    .padding(12.dp)
-                                    .align(
-                                        Alignment.Center
-                                    )
-                            )
-                        }
+                        ProgBar()
                     }
                 }
                 loadState.prepend is LoadState.Loading -> {
                     item {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(16.dp)
-                        ) {
-                            CircularProgressIndicator(
-                                modifier = Modifier
-                                    .padding(12.dp)
-                                    .align(
-                                        Alignment.Center
-                                    )
-                            )
-                        }
+                        ProgBar()
                     }
                 }
             }
         }
+    }
+}
+@Composable
+fun ProgBar(){
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
+        CircularProgressIndicator(
+            modifier = Modifier
+                .padding(12.dp)
+                .align(
+                    Alignment.Center
+                )
+        )
     }
 }
