@@ -252,4 +252,14 @@ public class VolumeInfo {
         this.ratingsCount = ratingsCount;
     }
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", authors=" + authors +
+                ", publisher='" + publisher + '\'' +
+                ", publishedDate='" + publishedDate + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

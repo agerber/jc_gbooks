@@ -97,4 +97,6 @@ public class Item {
         this.searchInfo = searchInfo;
     }
 
+
+
 }

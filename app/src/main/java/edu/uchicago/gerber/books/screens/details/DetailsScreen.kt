@@ -3,6 +3,7 @@ package edu.uchicago.gerber.favs.presentation.screens.details
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -83,7 +84,7 @@ fun DetailsScreen(
                                 sendIntent.type = "text/plain"
                                 sendIntent.putExtra(
                                     Intent.EXTRA_TEXT,
-                                    book.volumeInfo.title
+                                    "You must check out this book!: ${book.volumeInfo}"
                                 )
                                 activity?.startActivity(sendIntent)
                             }
@@ -96,13 +97,14 @@ fun DetailsScreen(
                         modifier = Modifier
                             .clickable {
                                 //this would be used for navigating if you have a physical address
-//                                val intent = Intent(
-//                                    Intent.ACTION_VIEW,
-//                                    Uri.parse(
-//                                        "google.navigation:q=${business.location?.displayAddress}"
-//                                    )
-//                                )
-//                                context?.startActivity(intent)
+                                val oberweisDairyAddress = "9 E Dundee Rd, Arlington Heights, IL 60004"
+                                val intent = Intent(
+                                    Intent.ACTION_VIEW,
+                                    Uri.parse(
+                                        "google.navigation:q=$oberweisDairyAddress"
+                                    )
+                                )
+                                activity?.startActivity(intent)
                             }
                             .align(Alignment.CenterVertically)
                             .padding(10.dp, 0.dp, 10.dp, 0.dp))
@@ -113,11 +115,12 @@ fun DetailsScreen(
                         modifier = Modifier
                             .clickable {
                                 //this would be used for dialing if you have a phone number
-//                                val intent = Intent(
-//                                    Intent.ACTION_DIAL,
-//                                    Uri.parse("tel:${business.displayPhone}")
-//                                )
-//                                context?.startActivity(intent)
+                                val phoneNumber = "800-555-1212"
+                                val intent = Intent(
+                                    Intent.ACTION_DIAL,
+                                    Uri.parse("tel:$phoneNumber")
+                                )
+                                activity?.startActivity(intent)
                             }
                             .align(Alignment.CenterVertically)
                             .padding(0.dp, 0.dp, 20.dp, 0.dp))
