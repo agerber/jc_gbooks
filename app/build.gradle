@@ -118,6 +118,13 @@ dependencies {
 
     implementation 'com.google.android.gms:play-services-auth:20.2.0'
 
+    //okHttp
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
+
+   //Coil (Image loading)
+    implementation 'com.google.accompanist:accompanist-coil:0.12.0'
+
 
 
 }
