@@ -58,18 +58,17 @@ fun BookRow(
 
                 )
 
-
             }
 
             Column() {
 
                 Text(
-                    text = "${book.volumeInfo?.authors?.get(0)}",
+                    text = book.volumeInfo?.authors?.get(0) ?: "None",
                     style = TextStyle(fontWeight = FontWeight.Bold),
                     textAlign = TextAlign.Start,
                     fontSize = 18.sp
                 )
-                //  Text(text = "${item.location?.displayAddress}")
+                  Text(text = book.volumeInfo?.title ?: "None",
             }
         }
     }
