@@ -4,6 +4,7 @@ package edu.uchicago.gerber.favs.presentation.screens.details
 import android.app.Activity
 import android.content.Intent
 import android.widget.Toast
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -23,9 +24,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.skydoves.landscapist.glide.GlideImage
 import edu.uchicago.gerber.books.models.Item
 import edu.uchicago.gerber.favs.R
@@ -163,7 +168,7 @@ fun DetailsScreen(
                     )
                 }
 
-                book.volumeInfo.authors.get(0)?.let {
+                book.volumeInfo.authors[0]?.let {
                     Text(
                         text = it.toString(),
                         modifier = Modifier
