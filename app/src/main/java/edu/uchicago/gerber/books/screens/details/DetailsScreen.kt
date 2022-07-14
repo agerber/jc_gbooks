@@ -145,6 +145,7 @@ fun DetailsScreen(
 
                 Divider()
                 Spacer(Modifier.height(20.dp))
+                //we can use either coil or glide for images. If you need animations, use coil
                 GlideImage(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -168,7 +169,7 @@ fun DetailsScreen(
                     }
                     authors?.get(0)?.let {
                         Text(
-                            text = it.toString(),
+                            text = it,
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(10.dp),

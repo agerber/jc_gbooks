@@ -23,6 +23,7 @@ import edu.uchicago.gerber.favs.screens.BookRow
 @Composable
 fun BookList(bookViewModel: BookViewModel, navController: NavController) {
 
+    //this is what consumes the flow
     val lazyPagingItems = bookViewModel.searchState.value.data?.collectAsLazyPagingItems()
 
     LazyColumn {
@@ -36,6 +37,7 @@ fun BookList(bookViewModel: BookViewModel, navController: NavController) {
             }
         }
 
+        //this will display a spinner in-place of a BookRow in the following events
         lazyPagingItems.apply {
             //fallthrough is not supported
             when {

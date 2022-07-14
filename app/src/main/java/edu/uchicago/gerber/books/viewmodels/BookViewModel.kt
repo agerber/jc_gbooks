@@ -58,7 +58,7 @@ class BookViewModel @Inject constructor(
         viewModelScope.launch {
             _searchState.value = SearchState(
                 data = Pager(
-                    config = PagingConfig(pageSize = 10, prefetchDistance = 5),
+                    config = PagingConfig(pageSize = 10, prefetchDistance = 2),
                     pagingSourceFactory = {
                         BookSource(
                             booksRepository = booksRepository,

@@ -38,6 +38,7 @@ fun BookRow(
             .fillMaxWidth()
             .clickable {
                 book.id?.let {
+                    //passed down from composable (BookList) that instantiates BookRow
                     onItemClick(it)
                 }
             }
@@ -50,6 +51,7 @@ fun BookRow(
         Row(horizontalArrangement = Arrangement.Start) {
 
             Surface(modifier = Modifier.padding(0.dp, 0.dp, 10.dp, 0.dp)) {
+                //we use coil library here to get fadeIn effect
                 val image = rememberCoilPainter(
                     request = book.volumeInfo?.imageLinks?.smallThumbnail ?: "https://picsum.photos/id/1026/60/90",
                     fadeIn = true)
@@ -67,6 +69,7 @@ fun BookRow(
             Column() {
 
                 Text(
+                    //sometimes, the authors are null; for example when it is a United Nations report
                     text = book.volumeInfo?.authors?.get(0) ?: "None",
                     style = TextStyle(fontWeight = FontWeight.Bold),
                     textAlign = TextAlign.Start,
