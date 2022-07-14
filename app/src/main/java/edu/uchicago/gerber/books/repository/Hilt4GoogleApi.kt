@@ -25,10 +25,10 @@ class Hilt4GoogleApi {
             .build()
             .create(BooksApi::class.java)
     }
-    private fun getOkHttpClient() = OkHttpClient.Builder().addInterceptor(getLoggingIntercepter()).build()
+    private fun getOkHttpClient() = OkHttpClient.Builder().addInterceptor(getLoggingInterceptor()).build()
 
     //todo set HttpLoggingInterceptor.Level.BODY to HttpLoggingInterceptor.Level.NONE for production release
-    private fun getLoggingIntercepter() =
+    private fun getLoggingInterceptor() =
         HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
 }
