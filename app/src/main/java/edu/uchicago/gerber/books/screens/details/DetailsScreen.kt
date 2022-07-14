@@ -152,34 +152,36 @@ fun DetailsScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .size(300.dp),
-                    imageModel = book.volumeInfo?.imageLinks?.thumbnail ?: "https://picsum.photos/234/picsum/300/400",
+                    imageModel = book.volumeInfo?.imageLinks?.thumbnail ?: "https://picsum.photos/id/1026/200/300",
                     // Crop, Fit, Inside, FillHeight, FillWidth, None
                     contentScale = ContentScale.Fit
 
                 )
-                book.volumeInfo.title?.let {
-                    Text(
-                        text = it,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(10.dp),
-                        style = TextStyle(fontWeight = FontWeight.Bold),
-                        textAlign = TextAlign.Start,
-                        fontSize = 22.sp
-                    )
+                with(book.volumeInfo){
+                   title?.let {
+                        Text(
+                            text = it,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(10.dp),
+                            style = TextStyle(fontWeight = FontWeight.Bold),
+                            textAlign = TextAlign.Start,
+                            fontSize = 22.sp
+                        )
+                    }
+                    authors?.get(0)?.let {
+                        Text(
+                            text = it.toString(),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(10.dp),
+                            style = TextStyle(fontWeight = FontWeight.Normal),
+                            textAlign = TextAlign.Start,
+                            fontSize = 16.sp
+                        )
+                    }
                 }
 
-                book.volumeInfo.authors[0]?.let {
-                    Text(
-                        text = it.toString(),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(10.dp),
-                        style = TextStyle(fontWeight = FontWeight.Normal),
-                        textAlign = TextAlign.Start,
-                        fontSize = 16.sp
-                    )
-                }
                 Button(
                     modifier =
                     Modifier

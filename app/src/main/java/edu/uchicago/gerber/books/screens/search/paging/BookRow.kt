@@ -51,7 +51,7 @@ fun BookRow(
                     modifier = Modifier
                         .width(60.dp)
                         .height(90.dp),
-                    imageModel = book.volumeInfo?.imageLinks?.smallThumbnail ?: "https://picsum.photos/123/picsum/60/90",
+                    imageModel = book.volumeInfo?.imageLinks?.smallThumbnail ?: "https://picsum.photos/id/1026/60/90",
                     // Crop, Fit, Inside, FillHeight, FillWidth, None
                     contentScale = ContentScale.FillHeight,
                     placeHolder = painterResource(id = R.drawable.ic_placeholder),
