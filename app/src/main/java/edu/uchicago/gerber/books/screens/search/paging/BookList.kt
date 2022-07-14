@@ -30,7 +30,7 @@ fun BookList(bookViewModel: BookViewModel, navController: NavController) {
         items(lazyPagingItems!!) { book ->
             BookRow(book = book!!) {
                 //the following lines define the onItemClick behavior
-                bookViewModel.setBusiness(book)
+                bookViewModel.setBook(book)
                 navController.navigate(
                     route = Screen.Detail.route
                 )

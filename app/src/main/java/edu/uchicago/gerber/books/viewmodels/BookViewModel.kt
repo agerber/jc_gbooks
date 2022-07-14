@@ -43,8 +43,8 @@ class BookViewModel @Inject constructor(
     //////////////////////////////////////////
     // FUNCTIONS
     //////////////////////////////////////////
-    fun setBusiness(business: Item) {
-        _book.value = business
+    fun setBook(book: Item) {
+        _book.value = book
     }
 
     fun setQueryText(query: String) {
