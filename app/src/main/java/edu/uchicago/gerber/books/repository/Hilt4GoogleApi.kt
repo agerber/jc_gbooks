@@ -15,11 +15,13 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class Hilt4GoogleApi {
 
+    //uses dependency injection to instantiate a BooksApi object
     @Provides
     @Singleton
-    fun provideBooksApi(): BooksApi {
+    fun booksApi(): BooksApi {
         return Retrofit.Builder()
-            .baseUrl(Constants.googleApi)
+            .baseUrl(Constants.googleUrl)
+             //add a client allows us to intercept the network traffic
             .client(getOkHttpClient())
             .addConverterFactory(GsonConverterFactory.create())
             .build()

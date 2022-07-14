@@ -10,6 +10,8 @@ import javax.inject.Singleton
 @Singleton
 interface BooksApi {
 
+    //https://developers.google.com/books/docs/v1/using
+    //this will manage generating the query string and using Retrofit to send GET request to api
     @GET(value = "books/v1/volumes")
     suspend fun getBooks(
         @Query("q") query: String,

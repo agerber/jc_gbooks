@@ -8,7 +8,7 @@ import edu.uchicago.gerber.books.models.VolumesResponse
 
 object Constants {
 
-    val googleApi = "https://www.googleapis.com/"
+    val googleUrl = "https://www.googleapis.com/"
     val fakeBook: Item
     val fakeResponse: VolumesResponse
     //use init to parse the raw response-body
