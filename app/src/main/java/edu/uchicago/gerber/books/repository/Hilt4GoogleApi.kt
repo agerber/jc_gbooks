@@ -5,6 +5,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import edu.uchicago.gerber.books.common.Constants
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -18,9 +20,15 @@ class Hilt4GoogleApi {
     fun provideBooksApi(): BooksApi {
         return Retrofit.Builder()
             .baseUrl(Constants.googleApi)
+            .client(getOkHttpClient())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(BooksApi::class.java)
     }
+    private fun getOkHttpClient() = OkHttpClient.Builder().addInterceptor(getLoggingIntercepter()).build()
+
+    //todo set HttpLoggingInterceptor.Level.BODY to HttpLoggingInterceptor.Level.NONE for production release
+    private fun getLoggingIntercepter() =
+        HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
 }
