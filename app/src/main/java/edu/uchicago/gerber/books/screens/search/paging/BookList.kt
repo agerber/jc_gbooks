@@ -3,7 +3,6 @@ package edu.uchicago.gerber.favs.presentation.search.widgets
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.CircularProgressIndicator
@@ -41,17 +40,17 @@ fun BookList(bookViewModel: BookViewModel, navController: NavController) {
             when {
                 loadState.refresh is LoadState.Loading -> {
                     item {
-                        ProgBar()
+                        Spinner()
                     }
                 }
                 loadState.append is LoadState.Loading -> {
                     item {
-                        ProgBar()
+                        Spinner()
                     }
                 }
                 loadState.prepend is LoadState.Loading -> {
                     item {
-                        ProgBar()
+                        Spinner()
                     }
                 }
             }
@@ -59,7 +58,7 @@ fun BookList(bookViewModel: BookViewModel, navController: NavController) {
     }
 }
 @Composable
-fun ProgBar(){
+fun Spinner(){
     Box(
         modifier = Modifier
             .fillMaxSize()
