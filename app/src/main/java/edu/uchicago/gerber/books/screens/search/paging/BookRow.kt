@@ -27,7 +27,7 @@ import edu.uchicago.gerber.favs.R
 @Composable
 fun BookRow(
     book: Item,
-    onItemClick: (String) -> Unit = {}
+    onItemClick: (String) -> Unit
 ) {
     Card(
         modifier = Modifier

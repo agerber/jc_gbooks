@@ -23,11 +23,12 @@ import edu.uchicago.gerber.favs.screens.BookRow
 @Composable
 fun BookList(bookViewModel: BookViewModel, navController: NavController) {
 
-    val res = bookViewModel.searchState.value.data?.collectAsLazyPagingItems()
+    val lazyPagingItems = bookViewModel.searchState.value.data?.collectAsLazyPagingItems()
 
     LazyColumn {
-        items(res!!) { book ->
+        items(lazyPagingItems!!) { book ->
             BookRow(book = book!!) {
+                //the following lines define the onItemClick behavior
                 bookViewModel.setBusiness(book)
                 navController.navigate(
                     route = Screen.Detail.route
@@ -35,7 +36,7 @@ fun BookList(bookViewModel: BookViewModel, navController: NavController) {
             }
         }
 
-        res.apply {
+        lazyPagingItems.apply {
             //fallthrough is not supported
             when {
                 loadState.refresh is LoadState.Loading -> {
