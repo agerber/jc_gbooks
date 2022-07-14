@@ -68,7 +68,7 @@ fun BookRow(
                     textAlign = TextAlign.Start,
                     fontSize = 18.sp
                 )
-                  Text(text = book.volumeInfo?.title ?: "None",
+                  Text(text = book.volumeInfo?.title ?: "None")
             }
         }
     }
