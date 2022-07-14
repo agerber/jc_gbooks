@@ -42,7 +42,7 @@ class BookSource @Inject constructor(
                     nextKey = if (body.size < params.loadSize) null else prev + 10
                 )
             } else {
-                 LoadResult.Error(Exception())
+                 LoadResult.Error(Exception(response.message()))
             }
 
         } catch (e: Exception) {
