@@ -4,7 +4,6 @@ package edu.uchicago.gerber.favs.presentation.screens.details
 import android.app.Activity
 import android.content.Intent
 import android.widget.Toast
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -24,15 +23,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.skydoves.landscapist.glide.GlideImage
-import edu.uchicago.gerber.books.models.Item
 import edu.uchicago.gerber.favs.R
 import edu.uchicago.gerber.books.viewmodels.BookViewModel
 
@@ -45,7 +39,7 @@ fun DetailsScreen(
 
     //observe the book
     val book = bookViewModel.book.value
-    val context = (LocalContext.current as? Activity)
+    val activity = (LocalContext.current as? Activity)
 
 
     Scaffold(topBar = {
@@ -91,7 +85,7 @@ fun DetailsScreen(
                                     Intent.EXTRA_TEXT,
                                     book.volumeInfo.title
                                 )
-                                context?.startActivity(sendIntent)
+                                activity?.startActivity(sendIntent)
                             }
                             .align(Alignment.CenterVertically)
                             .padding(10.dp, 0.dp, 0.dp, 0.dp))
@@ -189,7 +183,7 @@ fun DetailsScreen(
                         .fillMaxWidth(1f),
 
                     onClick = {
-                        Toast.makeText(context, "Favorite Pressed", Toast.LENGTH_LONG).show()
+                        Toast.makeText(activity, "Favorite Pressed", Toast.LENGTH_LONG).show()
                     },
 
                     colors =
